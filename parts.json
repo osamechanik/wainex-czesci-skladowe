@@ -1,0 +1,27 @@
+{
+  "06A-115-561B": {
+    "components": [
+      {
+        "name": "Uszczelka filtra oleju",
+        "code": "06A-115-441",
+        "qty": 1,
+        "category": "uszczelka",
+        "image": ""
+      },
+      {
+        "name": "Śruba M8x30 ocynk",
+        "code": "N-908-132-03",
+        "qty": 3,
+        "category": "śruba",
+        "image": ""
+      },
+      {
+        "name": "O-ring 24x3 NBR",
+        "code": "OR-24x3-NBR",
+        "qty": 2,
+        "category": "o-ring",
+        "image": ""
+      }
+    ]
+  }
+}

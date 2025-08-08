@@ -1,0 +1,1 @@
+Otwórz plik index.html w przeglądarce (Chrome / Edge / Firefox). Nie potrzebujesz internetu ani instalacji Node.js.
