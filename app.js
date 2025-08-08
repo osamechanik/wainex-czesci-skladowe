@@ -1,8 +1,10 @@
-// Static version (no backend)
+
+// Zmienne DOM
 const form = document.getElementById('search-form');
 const input = document.getElementById('partNumber');
 const statusEl = document.getElementById('status');
 const results = document.getElementById('results');
+const scanBtn = document.getElementById('scanBtn');
 const yearEl = document.getElementById('year');
 yearEl.textContent = new Date().getFullYear();
 
@@ -55,4 +57,21 @@ window.addEventListener('DOMContentLoaded', () => {
   const demo = '06A-115-561B';
   input.value = demo;
   search(demo);
+});
+
+// Skanowanie kodów — ZXing library
+scanBtn.addEventListener('click', async () => {
+  const codeReader = new ZXing.BrowserBarcodeReader();
+  statusEl.textContent = 'Uruchamiam kamerę...';
+
+  try {
+    const result = await codeReader.decodeOnceFromVideoDevice(undefined, 'video-preview');
+    input.value = result.text;
+    search(result.text);
+    codeReader.reset();
+    document.getElementById('scanBox').hidden = true;
+  } catch (err) {
+    console.error(err);
+    statusEl.textContent = 'Nie udało się zeskanować.';
+  }
 });

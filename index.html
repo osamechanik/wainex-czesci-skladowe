@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WAINEX — Części Składowe</title>
+  <title>WAINEX — Części Składowe + Skaner</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="logo.svg" type="image/svg+xml">
 </head>
@@ -16,22 +16,24 @@
 
   <main class="container">
     <form id="search-form" class="search">
-      <label for="partNumber" class="sr-only">Numer części</label>
-      <input id="partNumber" name="partNumber" type="text" placeholder="Wpisz numer części (np. 06A-115-561B)" autocomplete="off" required />
-      <button type="submit" id="searchBtn">Szukaj</button>
+      <input id="partNumber" name="partNumber" type="text" placeholder="Wpisz numer części" autocomplete="off" required />
+      <button type="submit">Szukaj</button>
+      <button type="button" id="scanBtn">Skanuj</button>
     </form>
 
-    <section id="status" aria-live="polite" class="status"></section>
+    <div id="scanBox" hidden>
+      <video id="video-preview" width="100%" style="margin-top:1rem; border:1px solid #333; border-radius:.5rem;"></video>
+    </div>
 
-    <section id="results" class="results" hidden>
-      <!-- Cards with components will render here -->
-    </section>
+    <section id="status" aria-live="polite" class="status"></section>
+    <section id="results" class="results" hidden></section>
   </main>
 
   <footer class="footer">
-    <small>© <span id="year"></span> WAINEX — wersja demo (MVP)</small>
+    <small>© <span id="year"></span> WAINEX — wersja demo (Skaner)</small>
   </footer>
 
+  <script src="https://unpkg.com/@zxing/browser@latest"></script>
   <script src="app.js"></script>
 </body>
 </html>
